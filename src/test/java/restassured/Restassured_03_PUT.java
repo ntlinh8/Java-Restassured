@@ -1,27 +1,20 @@
 package restassured;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+
 import java.util.List;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
+import commons.BaseTest;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import modelAPI.Student;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
 
-public class Restassured_03_PUT {
-	
-	@BeforeTest
-	public void beforeTest() {
-		RestAssured.baseURI = "http://localhost";
-		RestAssured.basePath = "/student";
-		RestAssured.port = 8080;
-	}
+public class Restassured_03_PUT extends BaseTest{
 	
 	@Test
 	public void Restassured_04_EditStudentInformation() {

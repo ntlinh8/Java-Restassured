@@ -1,24 +1,15 @@
 package restassured;
 
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
+import commons.BaseTest;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import modelAPI.Student;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-import modelAPI.Student;
-
-public class Restassured_02_POST {
-	@BeforeTest
-	public void beforeTest() {
-		RestAssured.baseURI = "http://localhost";
-		RestAssured.basePath = "/student";
-		RestAssured.port = 8080;
-	}
-	
+public class Restassured_02_POST extends BaseTest{
 	@Test
 	public void TC03_POST_AddNewStudent() {
         Student student = Student.getInstance();
