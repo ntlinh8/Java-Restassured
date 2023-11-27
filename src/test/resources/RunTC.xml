@@ -3,7 +3,10 @@
 
 <test name="Run API">
     <classes>
-      <class name="restassured.Restassured_04_DELETE"/>
+      <class name="features.Restassured_01_GET"/>
+      <class name="features.Restassured_02_POST"/>
+      <class name="features.Restassured_03_PUT"/>
+      <class name="features.Restassured_04_DELETE"/>
     </classes>
   </test> 
   

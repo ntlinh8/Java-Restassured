@@ -14,7 +14,7 @@ public class Student {
 	private List<String> courses;
 	
 	private Student() {
-		this.id = 101;
+		this.id = 100;
 		DataHelper datahelper = DataHelper.getDataHelper();
 		this.firstName = datahelper.getFirstName();
 		this.lastName = datahelper.getLastName();

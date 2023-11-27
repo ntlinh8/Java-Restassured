@@ -1,23 +1,21 @@
-package restassured;
+package features;
+
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import org.testng.annotations.Test;
 
+import api.CreateNewStudentAPI;
 import commons.BaseTest;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import modelAPI.Student;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
 
 public class Restassured_02_POST extends BaseTest{
+	CreateNewStudentAPI createNewStudent = new CreateNewStudentAPI();
+	
 	@Test
 	public void TC03_POST_AddNewStudent() {
         Student student = Student.getInstance();
-        Response res = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .body(student)
-                .post();
+        Response res = createNewStudent.createNewStudent(student);
         res.prettyPrint();
         res.then().statusCode(201).body("msg", equalTo("Student added"));
         

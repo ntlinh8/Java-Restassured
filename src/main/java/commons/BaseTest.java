@@ -8,7 +8,7 @@ public class BaseTest {
 	@BeforeTest
 	public void beforeAll() {
 		RestAssured.baseURI = "http://localhost";
-        RestAssured.basePath = "";
+        RestAssured.basePath = "/student";
         RestAssured.port = 8080;
 	}
 }

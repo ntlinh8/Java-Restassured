@@ -1,23 +1,25 @@
-package restassured;
+package features;
 
-import static io.restassured.RestAssured.given;
 import org.testng.annotations.Test;
+
+import api.CreateNewStudentAPI;
+import api.DeleteStudentAPI;
 import commons.BaseTest;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import modelAPI.Student;
 
 public class Restassured_04_DELETE extends BaseTest{
-
+	CreateNewStudentAPI createStudent = new CreateNewStudentAPI();
+	DeleteStudentAPI deleteStudent = new DeleteStudentAPI();
+	
 	@Test
 	public void Restassured_05_DeleteUserByID() {
 		// Prepare data
 		Student student = Student.getInstance();
-		given().log().all().contentType(ContentType.JSON)
-		.when().body(student).post();
+		createStudent.createNewStudent(student);
 		
 		// Call API to delete student
-		Response response = given().contentType(ContentType.JSON).when().delete("/{id}", student.getId());
+		Response response = deleteStudent.deleteStudentByID(student.getId());
 		response.then().statusCode(204);
 	}
 }
