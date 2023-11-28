@@ -2,6 +2,7 @@
 <suite parallel="false" name="Suite">
 
 <test name="Run API">
+	<parameter name="environment" value="dev"/>
     <classes>
       <class name="features.Restassured_01_GET"/>
       <class name="features.Restassured_02_POST"/>
